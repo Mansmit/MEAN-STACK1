@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="angularjsNodejsTutorial">
+    <head>
+        <title>Integrating AngularJS with NodeJS Express Dynamodb</title>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+
+
+        <script src="javascripts/app.js" type="text/javascript"></script> 
+    </head>
+    <body >
+        <div ng-controller="myController">
+<table border="1">
+      <tr>
+        <th>Movie Name</th>
+        <th>Year of Release</th>
+        <th>Actors</th>
+        <th>Description</th>
+        <th>Geners</th>
+        <th>Directors</th>
+      </tr>
+
+      <tr ng-repeat="item in data | orderBy:'-created'">
+        <td>{{item.title}}</td>
+        <td>{{item.year}}</td>
+        <td>{{item.info.actors}}</td>
+        <td>{{item.info.plot}}</td>
+        <td>{{item.info.genres}}</td>
+        <td>{{item.info.directors}}</td> 
+        
+      </tr>
+
+    </table>
+
+
+        </div>
+    </body>
+</html>
