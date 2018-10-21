@@ -2,12 +2,95 @@
 <html ng-app="angularjsNodejsTutorial">
     <head>
         <title>Integrating AngularJS with NodeJS Express Dynamodb</title>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+               <script 
 
+src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></scri
 
-        <script src="javascripts/app.js" type="text/javascript"></script> 
+pt>
+
+            <link rel="stylesheet" type="text/css" 
+
+href="css/bootstrap.min.css">
+
+        <script src="javascripts/app.js" type="text/javascript"></script>
+        <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+ /*Style for menu bar*/       
+<style>
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
+ 
     </head>
     <body >
+
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Home</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="/addmovie">Add a movie</a>
+    <a href="/editquery">Edit a movie</a>
+    <a href="/deletemovie">Delete a movie</a>
+  </div>
+</div>
+
+
+         <h1>List of Movies </h1>
         <div ng-controller="myController">
 <table border="1">
       <tr>
@@ -15,23 +98,24 @@
         <th>Year of Release</th>
         <th>Actors</th>
         <th>Description</th>
-        <th>Geners</th>
+        <th>Genres</th>
         <th>Directors</th>
-      </tr>
+        
+     </tr>
 
-      <tr ng-repeat="item in data | orderBy:'-created'">
+      <tr ng-repeat="item in data">
         <td>{{item.title}}</td>
         <td>{{item.year}}</td>
         <td>{{item.info.actors}}</td>
         <td>{{item.info.plot}}</td>
         <td>{{item.info.genres}}</td>
-        <td>{{item.info.directors}}</td> 
-        
+        <td>{{item.info.directors}}</td>
       </tr>
 
     </table>
 
 
         </div>
+    
     </body>
 </html>
