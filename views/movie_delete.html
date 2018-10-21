@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+<script src="javascripts/app.js"></script>
+</head>
+<body>
+<h1>Please enter the details...</h1>    
+  <div ng-app="angularjsNodejsTutorial">
+<form name="deleteMovie" ng-controller="deleteCtrl" 
+ng-submit="submitFormDelete()" >
+       Title:
+      <input type="text" ng-model="form.title" required>
+      <br>
+      <br>Year of Release:
+      <input type="text" ng-model="form.year" required>
+      <br>
+      <br>
+      <input type="submit" value="Delete">
+    </form>
+  </div>
+</body>
+</html>
