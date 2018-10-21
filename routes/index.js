@@ -191,9 +191,7 @@ var params = {
         "year": year,
         "title": title
     },
-    UpdateExpression: "set info.genres = :g, info.directors=:d, 
-
-info.actors=:a",
+    UpdateExpression: "set info.genres = :g, info.directors=:d, info.actors=:a",
     ExpressionAttributeValues:{
         
         ":g":req.body.genres,
