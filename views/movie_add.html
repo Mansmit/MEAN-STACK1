@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+<script src="javascripts/app.js"></script>
+</head>
+<body> 
+<h1>Please enter the details..</h1>
+   
+  <div ng-app="angularjsNodejsTutorial">
+    <form name="saveMovie" ng-controller="addCtrl" ng-submit="submitForm()" >
+       Title:
+      <input type="text" ng-model="form.title" required>
+      <br>
+      <br>Year of Release:
+      <input type="text" ng-model="form.year" required>
+      <br>
+      <br>Actors:
+      <input type="text" ng-model="form.actors">
+      <br>
+      <br>Directors:
+      <input type="text" ng-model="form.directors">
+      <br>
+      <br>Genres:
+      <input type="text" ng-model="form.genres">
+      <br>
+  
+      <br>
+      <input type="submit" value="Add">
+    </form>
+  </div>
+</body>
+</html>
